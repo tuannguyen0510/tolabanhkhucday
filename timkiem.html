@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="main.css">
+    <style>
+        button {
+            margin-top: 20px;
+        }
+
+        input {
+            margin: auto;
+        }
+
+        fieldset {
+            margin-top: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>TÌM KIẾM HỌC VIÊN</legend>
+        <input id="name" type="text" style="display: block;" class="name" placeholder="Nhập tên học viên cần tìm">
+        <small id="NameErr" class="text-danger" style="color: red;"></small><br>
+        <button id="submit" class="button">Tìm kiếm</button>
+        <button class="button"><a href="1quanlyhv.html">Hủy</a></button>
+    </fieldset>
+    <script>
+        var nameInp = document.getElementById('name');
+        var validateName = function () {
+            var NameError = document.getElementById('NameErr');
+            
+
+
+
+
+
+            if (nameInp.value == '') {
+                NameError.innerText = 'Không tìm thấy học viên';
+            } else {
+                NameError.innerText = 'Tìm thấy học viên: '+ nameInp.value;
+                NameError.className = "text-success";
+            }
+        }
+        // nameInp.onkeydown = validateName;
+        document.getElementById('submit').addEventListener('click', function (event) {
+            event.preventDefault();
+            validateName();
+            console.log(nameInp.value);
+        })
+    </script>
+</body>
+
+</html>

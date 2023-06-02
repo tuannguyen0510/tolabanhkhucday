@@ -1,0 +1,70 @@
+body {
+    background-image: url(https://img5.thuthuatphanmem.vn/uploads/2021/12/11/anh-nen-powerpoint-hoc-tap-say-me_093920221.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.abc {
+    text-align: center;
+    font-size: 32px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+
+    color: #0b35b1;
+    text-shadow: 3px 1px 5px #010909
+}
+
+.q {
+    text-align: center;
+    margin-top: 50px;
+    line-height: 3;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+}
+
+li:hover {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0px;
+    border: none;
+    font: normal 30px/normal "Dynalight", Helvetica, sans-serif;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: normal;
+    text-align: center;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    white-space: pre;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1), 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de;
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.button {
+    width: 200px;
+    height: 50px;
+}
+
+input {
+    width: 400px;
+    height: 50px;
+}
+
+fieldset {
+    margin: auto;
+    height: fit-content;
+    width: fit-content;
+}

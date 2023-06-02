@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <style>
+        fieldset {
+            margin: auto;
+            height: fit-content;
+            width: fit-content;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset class="mb-3">
+        <legend class="mb-3">THÊM HỌC VIÊN MỚI</legend>
+        <div id="alert" class="text-decoration"></div>
+        <form action="name">
+            <div class="mb-3">
+                <label for="">Tên học viên</label>
+                <input class="form-control" type="text" id="name" style="display: block;"
+                    placeholder="Nhập tên học viên mới">
+                <small class="text-danger" id="NameErr"></small>
+            </div>
+            <div class="mb-3">
+                <label for="age">Tuổi học viên</label>
+                <input class="form-control" type="number" style="display: block;" placeholder="Nhập tuổi học viên"
+                    id="age">
+                <small class="text-danger" id="ageErr"></small>
+            </div>
+            <div class="mb-3">
+                <label for="address">Địa chỉ học viên</label>
+                <input class="form-control" type="text" style="display: block;" placeholder="Nhập địa chỉ học viên"
+                    id="address">
+                <small class="text-danger" id="addErr"></small>
+            </div class="mb-3">
+
+        </form><br>
+        <button class="btn btn-outline-success" id="add">Thêm mới</button>
+        <button class="btn btn-outline-danger"><a href="index.html">Quay lại</a></button>
+    </fieldset>
+
+    <script>
+        var nameInp = document.getElementById('name');
+        var validateName = function () {
+            var NameError = document.getElementById('NameErr');
+            if (nameInp.value !== '') {
+                NameError.innerText = '';
+            } else {
+                NameError.innerText = 'Vui lòng nhập tên học viên';
+            }
+        }
+        nameInp.oninput = validateName;
+        var ageInp = document.getElementById('age');
+        var validateAge = function () {
+            var ageError = document.getElementById('ageErr');
+            if (ageInp.value > 10) {
+                ageError.innerText = '';
+            } else {
+                ageError.innerText = 'Vui lòng nhập tuổi';
+            }
+        }
+        ageInp.oninput = validateAge;
+        var addressInp = document.getElementById('address');
+        var validateAddress = function () {
+            var addError = document.getElementById('addErr')
+            if (addressInp.value !== '') {
+                addError.innerText = '';
+            } else {
+                addError.innerText = 'Vui lòng nhập địa chỉ học viên';
+            }
+        }
+        addressInp.oninput = validateAddress;
+        document.getElementById('add').addEventListener('click', function (event) {
+            event.preventDefault();
+
+            validateName();
+            validateAge();
+            validateAddress();
+            var checkData = document.querySelectorAll('small');
+            var resul = Array.from(checkData).every(function (small) {
+                return small.innerText == '';
+            })
+            console.log(resul);
+            if (resul) {
+                function Student(name, age, address) {
+                    this.name = name;
+                    this.age = age;
+                    this.address = address;
+                }
+                var name = nameInp.value;
+                var age = ageInp.value;
+                var address = addressInp.value;
+                var student1 = new Student(name, age, address);
+                let postData = JSON.stringify(student1);
+                console.log(postData);
+                var Alert = document.getElementById('alert');
+                fetch('https://646b70ec7d3c1cae4ce3cd87.mockapi.io/students',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: postData
+                    })
+                    .then(function (response) {
+                        if (response.ok) {
+                            Alert.innerHTML = 'Thêm học viên thành công';
+                            Alert.className = 'text-success';
+                        } else {
+                            Alert.innerHTML = 'Thêm học viên thất bại';
+                            Alert.className = 'text-danger';
+                        }
+                    })
+                    .catch(function (error) {
+                        Alert.innerHTML = 'Có lỗi';
+                        Alert.className = 'text-danger';
+                    });
+            }
+        });
+    </script>
+</body>
+
+</html>

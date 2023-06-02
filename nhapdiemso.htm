@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        input {
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            width: 150px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>NHẬP ĐIỂM HỌC VIÊN</legend>
+
+        <form action="">
+            <label for="Tên học viên"></label>
+            <input name="tên học viên" type="text" style="display: block;" id="name"
+                placeholder="Nhập tên học viên">
+            <small id="NameError" style="color: red;"></small>
+            <div class="">
+                <input name="điểm số modul 1" class="form-control" id="modul1" type="number"
+                    style="display: block;" placeholder="Nhập điểm số modul 1">
+                <small id="modul1E" style="color: red;"></small>
+                <input name="điểm số modul 2" class="form-control" id="modul2" type="number"
+                    style="display: block;" placeholder="Nhập điểm số modul 2">
+                <small id="modul2E" style="color: red;"></small>
+                <input name="điểm số modul 3" class="form-control" id="modul3" type="number"
+                    style="display: block;" placeholder="Nhập điểm số modul 3">
+                <small id="modul3E" style="color: red;"></small>
+                <input name="điểm số modul 4" class="form-control" id="modul4" type="number"
+                    style="display: block;" placeholder="Nhập điểm số modul 4">
+                <small id="modul4E" style="color: red;"></small>
+            </div>
+        </form>
+        <button id="submit" class="">Thêm</button>
+        <button><a href="1quanlyhv.html">Hủy</a></button>
+    </fieldset>
+    <script>
+        var formInp = document.querySelectorAll('input');
+        var gradeValidate = function () {
+            for (let index = 0; index < formInp.length; index++) {
+                if (formInp[index].value == '') {
+                    formInp[index].nextElementSibling.innerHTML = 'Vui lòng nhập' + formInp[index].name;
+                } else {
+                    formInp[index].nextElementSibling.innerHTML = '';
+                }
+            }
+        }
+        for (let index = 0; index < formInp.length; index++) {
+            formInp[index].oninput = gradeValidate
+        }
+        document.getElementById('submit').addEventListener('click', function () {
+            gradeValidate();
+            var checkSmall = document.querySelectorAll('small');
+            var resul = Array.from(checkSmall).every(function (small) {
+               return small.innerText == '';
+            })
+            if (resul) {
+                for (let index = 0; index < formInp.length; index++) {
+                    console.log(formInp[index].name + ": " + formInp[index].value);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

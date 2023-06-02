@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <style>
+        table {
+            font-size: 17px;
+            margin: 0;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div>
+            <h1>DANH SÁCH HỌC VIÊN</h1>
+        </div>
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Tên hv</th>
+                    <th>Tuổi</th>
+                    <th>Địa chỉ</th>
+                </tr>
+            </thead>
+            <tbody id="students"> </tbody>
+        </table>
+
+        <button class="btn btn-outline-danger"><a href="index.html">Quay lại</a></button>
+
+        <script src="api.js"></script>
+    </div>
+</body>
+
+
+</html>
