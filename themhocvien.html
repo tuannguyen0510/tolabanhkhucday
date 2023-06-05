@@ -113,6 +113,9 @@
                         if (response.ok) {
                             Alert.innerHTML = 'Thêm học viên thành công';
                             Alert.className = 'text-success';
+                            ageInp.value ="";
+                            addressInp.value="";
+                            nameInp.value="";
                         } else {
                             Alert.innerHTML = 'Thêm học viên thất bại';
                             Alert.className = 'text-danger';
