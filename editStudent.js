@@ -158,8 +158,10 @@ putEdit.onclick = async function (event) {
     console.log(checked);
     if (checked) {
         editID(id)
-        document.getElementById('add').innerText = 'Thay đổi thông tin thành công ^^--';
+        // document.getElementById('add').innerText = 'Thay đổi thông tin thành công ^^--';
+        alert('Thay đổi thông tin thành công ^^--');
         document.getElementById('add').className = 'text-success';
+        
     } else {
         console.log('vui lòng không để trống');
         return;
