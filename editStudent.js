@@ -15,11 +15,8 @@ function getdata() {
                 EditStudent();
 
             } else {
-                var table = document.querySelector('table');
-                // table.remove();
-                nameInp.value = ""
-                displayStudents(student);
-                document.getElementById('NameErr').innerText = 'không tìm thấy học viên';
+                document.getElementsByTagName('table')[0].style.display = "none";
+                document.getElementById('NameErr').innerText = 'Không tìm thấy học viên';
                 document.getElementById('NameErr').className = 'text-danger';
             }
         })
@@ -45,6 +42,7 @@ function displayStudents(students) {
     listFind.innerHTML = Tbody;
     document.getElementById('NameErr').innerText = 'Tìm thấy học viên: ';
     document.getElementById('NameErr').className = "text-success";
+    document.getElementsByTagName('table')[0].style.display = "table";
 }
 // click 1
 document.getElementById('Find').addEventListener('click', function (event) {
@@ -161,7 +159,7 @@ putEdit.onclick = async function (event) {
         // document.getElementById('add').innerText = 'Thay đổi thông tin thành công ^^--';
         alert('Thay đổi thông tin thành công ^^--');
         document.getElementById('add').className = 'text-success';
-        
+
     } else {
         console.log('vui lòng không để trống');
         return;
